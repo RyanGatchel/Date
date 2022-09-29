@@ -31,7 +31,6 @@
                 <option value="11">Nov</option>
                 <option value="12">Dec</option>
             </select>
-
             <label for="day">Day:</label>
             <select clas="input_field" id="day_input" name="day" onchange="updateDay()">
                 <option value="1">1</option>
@@ -66,7 +65,6 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
-
             <label for="year">Year:</label>
             <select clas="input_field" id="year_input" name="year" onchange="updateYear()">
                 <option value="2022">2022</option>
@@ -111,47 +109,34 @@
                 <option value="2061">2061</option>
                 <option value="2062">2062</option>
             </select>
-
         <h3> <span id="month"></span> / <span id="day"></span> / <span id="year"> </span> </span> is <span id="months_future"> 0 </span> month(s) <span id="days_future"> 0 </span> day(s) <span id="years_future"> 0 </span> year(s) away </h3>
-
         <script src="" async defer></script>
     </body>
     <script>
-
         var month = new Date()
         month = month.getMonth() + 1
         document.getElementById('month').innerHTML = month;
-
         var day = new Date()
         day = day.getDate()
         document.getElementById('day').innerHTML = day;
-
         var year = new Date()
         year = year.getFullYear()
         document.getElementById('year').innerHTML = year;
-
         todays_date = month + ' ' + day + ' ' + year;
-
         // var todays_date = month + '/' + day + '/' + year;
-
         var new_year = document.getElementById('year_input');
-
-
         localStorage.setItem('Month', month)
         var test_month = localStorage.getItem('Month')
         document.getElementById('month').innerHTML = test_month;
         
-
             function updateMonth() {
                 localStorage.setItem('Month', month)
                 var test_month = localStorage.getItem('Month') // Local storage variable
                 
                 var new_month = document.getElementById('month_input'); // getting input 
                 var month_value = new_month.options[new_month.selectedIndex].value; // getting input
-
                 // Test Code
                 // var current_month = month;
-
                 // var month_until = month_value - month;
                 // var future_month = +month_value + +3;
                 // document.getElementById('month').innerHTML = test_month;
@@ -163,15 +148,11 @@
                 //         document.getElementById('months_future').innerHTML = future_month;
                 //     }
                 // }
-
-
                 // Test Code
-
                 document.getElementById('month').innerHTML = month_value;
                 
                 var month_until = month_value - month;
                 var future_month = +month_value + +3;
-
                 if (month_until >= 0) {
                     console.log(month_until)
                     document.getElementById('months_future').innerHTML = month_until;
@@ -180,7 +161,6 @@
                     document.getElementById('months_future').innerHTML = future_month;
                 }
             }
-
             function updateDay() {
                 var new_day = document.getElementById('day_input');
                 var day_value = new_day.options[new_day.selectedIndex].value;
@@ -193,7 +173,6 @@
                     document.getElementById('days_future').innerHTML = future_day;
                 }
             }
-
             function updateYear() {
                 var new_year = document.getElementById('year_input');
                 var year_value = new_year.options[new_year.selectedIndex].value;
@@ -203,14 +182,11 @@
                     document.getElementById('years_future').innerHTML = year_until;
                 }
             }
-
             updateMonth();
             updateDay();
             updateYear();
             // dateIntoFuture();
-
     </script>
-
     <script>
         // document.getElementById('month').addEventListener('onchange', newDate())
         // document.getElementById('day').addElementListener('onchange',theDay())
@@ -218,7 +194,6 @@
         
         // function newDate() {
         //     document.getElementById('date').innerHTML = month + '/' + day + '/' + year;
-
         //     var new_month = document.getElementById('month').value;
         //     var new_day = document.getElementById('day').value;
         //     var new_year = document.getElementById('year').value;
@@ -229,16 +204,13 @@
         //     document.getElementById('date').innerHTML = new_month + '/' + new_day + '/' + year;
         //     document.getElementById('date').innerHTML = new_month + '/' + new_day + '/' + new_year;
         // }
-
         // function theDay() {
         //     var new_day = document.getElementById('day').value;
         //     document.getElementById('date').innerHTML = month + '/' + new_day + '/' + year;
         // }
-
         // function theYear() {
         //     var year = document.getElementById('year').value;
         //     document.getElementById('date').innerHTML = month + '/' + day + '/' + year;
         // }
     </script>
-
 </html>
