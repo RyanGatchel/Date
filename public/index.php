@@ -10,11 +10,14 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
             <label for="month">Month:</label>
-            <select id="month_input" name="month" onchange="updateMonth()">
+            <select clas="input_field" id="month_input" name="month" onchange="updateMonth()">
                 <option value="1">Jan</option>
                 <option value="2">Feb</option>
                 <option value="3">March</option>
@@ -30,7 +33,7 @@
             </select>
 
             <label for="day">Day:</label>
-            <select id="day_input" name="day" onchange="updateDay()">
+            <select clas="input_field" id="day_input" name="day" onchange="updateDay()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -65,7 +68,7 @@
             </select>
 
             <label for="year">Year:</label>
-            <select id="year_input" name="year" onchange="updateYear()">
+            <select clas="input_field" id="year_input" name="year" onchange="updateYear()">
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -141,16 +144,34 @@
 
             function updateMonth() {
                 localStorage.setItem('Month', month)
-                var test_month = localStorage.getItem('Month')
+                var test_month = localStorage.getItem('Month') // Local storage variable
                 
-                
-
                 var new_month = document.getElementById('month_input'); // getting input 
                 var month_value = new_month.options[new_month.selectedIndex].value; // getting input
 
+                // Test Code
+                // var current_month = month;
+
+                // var month_until = month_value - month;
+                // var future_month = +month_value + +3;
+                // document.getElementById('month').innerHTML = test_month;
+                
+                // if (month_value = current_month) {
+                //     if (month_until >= 0) {
+                //         document.getElementById('months_future').innerHTML = month_until;
+                //     } else {
+                //         document.getElementById('months_future').innerHTML = future_month;
+                //     }
+                // }
+
+
+                // Test Code
+
                 document.getElementById('month').innerHTML = month_value;
+                
                 var month_until = month_value - month;
                 var future_month = +month_value + +3;
+
                 if (month_until >= 0) {
                     console.log(month_until)
                     document.getElementById('months_future').innerHTML = month_until;
@@ -167,10 +188,8 @@
                 var day_until = day_value - day;
                 var future_day = +day_value + 1;
                 if (day_until >= 0) {
-                    console.log(day_until)
                     document.getElementById('days_future').innerHTML = day_until;
                 } else {
-                    console.log(future_day)
                     document.getElementById('days_future').innerHTML = future_day;
                 }
             }
@@ -181,7 +200,6 @@
                 document.getElementById('year').innerHTML =year_value;
                 var year_until = year_value - year;
                 if (year_until >= 0) {
-                    console.log(year_until)
                     document.getElementById('years_future').innerHTML = year_until;
                 }
             }
