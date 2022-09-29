@@ -123,7 +123,6 @@
         year = year.getFullYear()
         document.getElementById('year').innerHTML = year;
         todays_date = month + ' ' + day + ' ' + year;
-        // var todays_date = month + '/' + day + '/' + year;
         var new_year = document.getElementById('year_input');
         localStorage.setItem('Month', month)
         var test_month = localStorage.getItem('Month')
@@ -135,20 +134,7 @@
                 
                 var new_month = document.getElementById('month_input'); // getting input 
                 var month_value = new_month.options[new_month.selectedIndex].value; // getting input
-                // Test Code
-                // var current_month = month;
-                // var month_until = month_value - month;
-                // var future_month = +month_value + +3;
-                // document.getElementById('month').innerHTML = test_month;
-                
-                // if (month_value = current_month) {
-                //     if (month_until >= 0) {
-                //         document.getElementById('months_future').innerHTML = month_until;
-                //     } else {
-                //         document.getElementById('months_future').innerHTML = future_month;
-                //     }
-                // }
-                // Test Code
+
                 document.getElementById('month').innerHTML = month_value;
                 
                 var month_until = month_value - month;
@@ -185,32 +171,5 @@
             updateMonth();
             updateDay();
             updateYear();
-            // dateIntoFuture();
-    </script>
-    <script>
-        // document.getElementById('month').addEventListener('onchange', newDate())
-        // document.getElementById('day').addElementListener('onchange',theDay())
-        // document.getElementById('year').addElementListener('onchange',theYear())
-        
-        // function newDate() {
-        //     document.getElementById('date').innerHTML = month + '/' + day + '/' + year;
-        //     var new_month = document.getElementById('month').value;
-        //     var new_day = document.getElementById('day').value;
-        //     var new_year = document.getElementById('year').value;
-        //     if (month != new_month) {
-        //         console.log('hello');
-        //     }
-        //     document.getElementById('date').innerHTML = new_month + '/' + day + '/' + year;
-        //     document.getElementById('date').innerHTML = new_month + '/' + new_day + '/' + year;
-        //     document.getElementById('date').innerHTML = new_month + '/' + new_day + '/' + new_year;
-        // }
-        // function theDay() {
-        //     var new_day = document.getElementById('day').value;
-        //     document.getElementById('date').innerHTML = month + '/' + new_day + '/' + year;
-        // }
-        // function theYear() {
-        //     var year = document.getElementById('year').value;
-        //     document.getElementById('date').innerHTML = month + '/' + day + '/' + year;
-        // }
     </script>
 </html>
