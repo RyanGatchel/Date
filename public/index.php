@@ -78,9 +78,38 @@
                 <option value="2031">2031</option>
                 <option value="2032">2032</option>
                 <option value="2033">2033</option>
+                <option value="2034">2034</option>
+                <option value="2035">2035</option>
+                <option value="2036">2036</option>
+                <option value="2037">2037</option>
+                <option value="2038">2038</option>
+                <option value="2039">2039</option>
+                <option value="2040">2040</option>
+                <option value="2041">2041</option>
+                <option value="2042">2042</option>
+                <option value="2043">2043</option>
+                <option value="2044">2044</option>
+                <option value="2045">2045</option>
+                <option value="2046">2046</option>
+                <option value="2047">2047</option>
+                <option value="2048">2048</option>
+                <option value="2049">2049</option>
+                <option value="2050">2050</option>
+                <option value="2051">2051</option>
+                <option value="2052">2052</option>
+                <option value="2053">2053</option>
+                <option value="2054">2054</option>
+                <option value="2055">2055</option>
+                <option value="2056">2056</option>
+                <option value="2057">2057</option>
+                <option value="2058">2058</option>
+                <option value="2059">2059</option>
+                <option value="2060">2060</option>
+                <option value="2061">2061</option>
+                <option value="2062">2062</option>
             </select>
 
-        <h3> <span id="month"></span> / <span id="day"></span> / <span id="year"> </span> </span> is <span id="x"> x </span>days from away </h3>
+        <h3> <span id="month"></span> / <span id="day"></span> / <span id="year"> </span> </span> is <span id="months_future"> 0 </span> month(s) <span id="days_future"> 0 </span> day(s) <span id="years_future"> 0 </span> year(s) away </h3>
 
         <script src="" async defer></script>
     </body>
@@ -98,32 +127,70 @@
         year = year.getFullYear()
         document.getElementById('year').innerHTML = year;
 
+        todays_date = month + ' ' + day + ' ' + year;
+
         // var todays_date = month + '/' + day + '/' + year;
 
-            var new_year = document.getElementById('year_input');
+        var new_year = document.getElementById('year_input');
+
+
+        localStorage.setItem('Month', month)
+        var test_month = localStorage.getItem('Month')
+        document.getElementById('month').innerHTML = test_month;
+        
 
             function updateMonth() {
-                var new_month = document.getElementById('month_input');
-                var month_value = new_month.options[new_month.selectedIndex].value;
+                localStorage.setItem('Month', month)
+                var test_month = localStorage.getItem('Month')
+                
+                
+
+                var new_month = document.getElementById('month_input'); // getting input 
+                var month_value = new_month.options[new_month.selectedIndex].value; // getting input
+
                 document.getElementById('month').innerHTML = month_value;
+                var month_until = month_value - month;
+                var future_month = +month_value + +3;
+                if (month_until >= 0) {
+                    console.log(month_until)
+                    document.getElementById('months_future').innerHTML = month_until;
+                } else {
+                    console.log(future_month)
+                    document.getElementById('months_future').innerHTML = future_month;
+                }
             }
 
             function updateDay() {
                 var new_day = document.getElementById('day_input');
                 var day_value = new_day.options[new_day.selectedIndex].value;
-                document.getElementById('day').innerHTML =day_value;
+                document.getElementById('day').innerHTML = day_value;
+                var day_until = day_value - day;
+                var future_day = +day_value + 1;
+                if (day_until >= 0) {
+                    console.log(day_until)
+                    document.getElementById('days_future').innerHTML = day_until;
+                } else {
+                    console.log(future_day)
+                    document.getElementById('days_future').innerHTML = future_day;
+                }
             }
 
             function updateYear() {
                 var new_year = document.getElementById('year_input');
                 var year_value = new_year.options[new_year.selectedIndex].value;
                 document.getElementById('year').innerHTML =year_value;
+                var year_until = year_value - year;
+                if (year_until >= 0) {
+                    console.log(year_until)
+                    document.getElementById('years_future').innerHTML = year_until;
+                }
             }
-
 
             updateMonth();
             updateDay();
             updateYear();
+            // dateIntoFuture();
+
     </script>
 
     <script>
